@@ -1,4 +1,4 @@
-import { plainToInstance } from 'class-transformer';
+import { plainToInstance } from "class-transformer";
 
 class SomeClass {
   public aNumber: number;
@@ -7,8 +7,10 @@ class SomeClass {
 
 function main() {
   const partialA = plainToInstance(SomeClass, { aNumber: 1 });
-  const partialB = plainToInstance(SomeClass, { aString: 'abc' });
+  const partialB = plainToInstance(SomeClass, { aString: "abc" });
   console.log({ ...partialA, ...partialB });
+  // Expected: { aNumber: 1, aString: 'abc' }
+  // Logged:   { aNumber: undefined, aString: 'abc' }
 }
 
 main();
